@@ -1,0 +1,2 @@
+class VenueAllocation < ApplicationRecord
+end
