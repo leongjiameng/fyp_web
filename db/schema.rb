@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_02_080234) do
+ActiveRecord::Schema.define(version: 2019_08_02_120735) do
 
   create_table "active_admin_comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci", force: :cascade do |t|
     t.string "namespace"
@@ -54,6 +54,17 @@ ActiveRecord::Schema.define(version: 2019_08_02_080234) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["faculty_id"], name: "index_departments_on_faculty_id"
+  end
+
+  create_table "exam_registereds", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci", force: :cascade do |t|
+    t.bigint "candidate_id"
+    t.bigint "examination_id"
+    t.bigint "venue_allocation_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["candidate_id"], name: "index_exam_registereds_on_candidate_id"
+    t.index ["examination_id"], name: "index_exam_registereds_on_examination_id"
+    t.index ["venue_allocation_id"], name: "index_exam_registereds_on_venue_allocation_id"
   end
 
   create_table "exam_sessions", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci", force: :cascade do |t|
