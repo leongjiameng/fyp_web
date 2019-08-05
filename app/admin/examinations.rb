@@ -1,5 +1,5 @@
 ActiveAdmin.register Examination do
-
+  permit_params :subject_id, :exam_session_id, :duration, :start_time, :end_time
   # See permitted parameters documentation:
   # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
   #

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_02_120735) do
+ActiveRecord::Schema.define(version: 2019_08_04_065507) do
 
   create_table "active_admin_comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci", force: :cascade do |t|
     t.string "namespace"
@@ -123,7 +123,7 @@ ActiveRecord::Schema.define(version: 2019_08_02_120735) do
 
   create_table "staffs", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci", force: :cascade do |t|
     t.string "name"
-    t.string "staff_id"
+    t.string "utar_staff_no"
     t.string "position"
     t.bigint "department_id"
     t.datetime "created_at", null: false
@@ -132,7 +132,7 @@ ActiveRecord::Schema.define(version: 2019_08_02_120735) do
   end
 
   create_table "students", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci", force: :cascade do |t|
-    t.string "student_id"
+    t.string "utar_student_no"
     t.string "name"
     t.bigint "programme_id"
     t.datetime "created_at", null: false

@@ -1,5 +1,5 @@
 ActiveAdmin.register Invigilator do
-
+  permit_params :staff_id, :examination_id, :venue_allocation_id, :position
   # See permitted parameters documentation:
   # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
   #

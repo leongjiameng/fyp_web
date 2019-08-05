@@ -1,4 +1,4 @@
 class VenueAllocation < ApplicationRecord
-    belongs_to :examinations
-    belongs_to :resources
+    belongs_to :examination
+    belongs_to :resource
 end

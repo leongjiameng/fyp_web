@@ -1,5 +1,5 @@
 ActiveAdmin.register Staff do
-
+  permit_params :name, :department_id, :utar_staff_no, :position
   # See permitted parameters documentation:
   # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
   #

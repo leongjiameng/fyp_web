@@ -1,5 +1,5 @@
 ActiveAdmin.register ExamRegistered do
-
+  permit_params :candidate_id, :examination_id, :venue_allocation_id
   # See permitted parameters documentation:
   # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
   #

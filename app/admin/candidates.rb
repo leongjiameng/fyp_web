@@ -12,7 +12,6 @@ ActiveAdmin.register Candidate do
   #   permitted << :other if params[:action] == 'create' && current_user.admin?
   #   permitted
   # end
-  
-  
+  permit_params :index_no, :student_id, :exam_session_id
 
 end
