@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_04_065507) do
+ActiveRecord::Schema.define(version: 2019_08_05_124330) do
 
   create_table "active_admin_comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci", force: :cascade do |t|
     t.string "namespace"
@@ -83,6 +83,7 @@ ActiveRecord::Schema.define(version: 2019_08_04_065507) do
     t.datetime "end_time"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "name"
     t.index ["exam_session_id"], name: "index_examinations_on_exam_session_id"
     t.index ["subject_id"], name: "index_examinations_on_subject_id"
   end

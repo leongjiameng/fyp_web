@@ -1,5 +1,5 @@
 class ExamRegistered < ApplicationRecord
     belongs_to :candidate
     belongs_to :examination
-    has_one :venue_allocation
+    belongs_to :venue_allocation
 end
