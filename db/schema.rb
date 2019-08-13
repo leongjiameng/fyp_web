@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_05_124330) do
+ActiveRecord::Schema.define(version: 2019_08_09_042531) do
 
   create_table "active_admin_comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci", force: :cascade do |t|
     t.string "namespace"
@@ -38,6 +38,16 @@ ActiveRecord::Schema.define(version: 2019_08_05_124330) do
     t.index ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true
   end
 
+  create_table "announcements", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci", force: :cascade do |t|
+    t.string "text"
+    t.boolean "show_in_app"
+    t.string "notification_type"
+    t.boolean "send_notification"
+    t.boolean "is_test_push"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "candidates", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci", force: :cascade do |t|
     t.bigint "exam_session_id"
     t.string "index_no"
@@ -46,6 +56,19 @@ ActiveRecord::Schema.define(version: 2019_08_05_124330) do
     t.datetime "updated_at", null: false
     t.index ["exam_session_id"], name: "index_candidates_on_exam_session_id"
     t.index ["student_id"], name: "index_candidates_on_student_id"
+  end
+
+  create_table "clashing_reports", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci", force: :cascade do |t|
+    t.bigint "exam_registered1_id"
+    t.bigint "exam_registered2_id"
+    t.string "message"
+    t.bigint "candidate_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "status"
+    t.index ["candidate_id"], name: "index_clashing_reports_on_candidate_id"
+    t.index ["exam_registered1_id"], name: "index_clashing_reports_on_exam_registered1_id"
+    t.index ["exam_registered2_id"], name: "index_clashing_reports_on_exam_registered2_id"
   end
 
   create_table "departments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci", force: :cascade do |t|
@@ -69,8 +92,8 @@ ActiveRecord::Schema.define(version: 2019_08_05_124330) do
 
   create_table "exam_sessions", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci", force: :cascade do |t|
     t.string "name"
-    t.datetime "from"
-    t.datetime "until"
+    t.datetime "start_time"
+    t.datetime "end_time"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -160,4 +183,6 @@ ActiveRecord::Schema.define(version: 2019_08_05_124330) do
     t.index ["resource_id"], name: "index_venue_allocations_on_resource_id"
   end
 
+  add_foreign_key "clashing_reports", "exam_registereds", column: "exam_registered1_id"
+  add_foreign_key "clashing_reports", "exam_registereds", column: "exam_registered2_id"
 end
