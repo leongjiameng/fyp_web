@@ -1,4 +1,5 @@
 ActiveAdmin.register AdminUser do
+  menu :parent => "Admin Control",url: :admin_admin_users_url, :priority => 3
   permit_params :email, :password, :password_confirmation
 
   index do

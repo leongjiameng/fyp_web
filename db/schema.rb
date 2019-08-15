@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_09_042531) do
+ActiveRecord::Schema.define(version: 2019_08_14_234901) do
 
   create_table "active_admin_comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci", force: :cascade do |t|
     t.string "namespace"
@@ -96,6 +96,7 @@ ActiveRecord::Schema.define(version: 2019_08_09_042531) do
     t.datetime "end_time"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "current"
   end
 
   create_table "examinations", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci", force: :cascade do |t|
@@ -152,7 +153,9 @@ ActiveRecord::Schema.define(version: 2019_08_09_042531) do
     t.bigint "department_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "user_id"
     t.index ["department_id"], name: "index_staffs_on_department_id"
+    t.index ["user_id"], name: "index_staffs_on_user_id"
   end
 
   create_table "students", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci", force: :cascade do |t|
@@ -161,7 +164,9 @@ ActiveRecord::Schema.define(version: 2019_08_09_042531) do
     t.bigint "programme_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "user_id"
     t.index ["programme_id"], name: "index_students_on_programme_id"
+    t.index ["user_id"], name: "index_students_on_user_id"
   end
 
   create_table "subjects", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci", force: :cascade do |t|
@@ -169,6 +174,18 @@ ActiveRecord::Schema.define(version: 2019_08_09_042531) do
     t.string "subject_name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci", force: :cascade do |t|
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
   create_table "venue_allocations", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci", force: :cascade do |t|
@@ -185,4 +202,6 @@ ActiveRecord::Schema.define(version: 2019_08_09_042531) do
 
   add_foreign_key "clashing_reports", "exam_registereds", column: "exam_registered1_id"
   add_foreign_key "clashing_reports", "exam_registereds", column: "exam_registered2_id"
+  add_foreign_key "staffs", "users"
+  add_foreign_key "students", "users"
 end

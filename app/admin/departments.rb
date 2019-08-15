@@ -1,4 +1,5 @@
 ActiveAdmin.register Department do
+  menu :parent => "Maintenances",url: :admin_departments_url, :priority => 3
   permit_params :name, :faculty_id
   # See permitted parameters documentation:
   # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters

@@ -1,6 +1,6 @@
-ActiveAdmin.register Programme do
-  menu :parent => "Maintenances",url: :admin_programmes_url, :priority => 3
-  permit_params :name, :department_id
+ActiveAdmin.register User do
+  menu :parent => "Users",url: :admin_users_url, :priority => 3
+  permit_params :email, :password
   # See permitted parameters documentation:
   # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
   #
@@ -13,5 +13,17 @@ ActiveAdmin.register Programme do
   #   permitted << :other if params[:action] == 'create' && current_user.admin?
   #   permitted
   # end
-  
+
+  index do
+    column :email
+    actions
+  end
+
+  form do |f|
+    f.inputs do
+      f.input :email
+      f.input :password
+    end
+    f.actions
+  end
 end

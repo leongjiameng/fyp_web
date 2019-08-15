@@ -1,4 +1,5 @@
 ActiveAdmin.register VenueAllocation do
+  menu :parent => "Examination",url: :admin_venue_allocations_url, :priority => 3
   permit_params :resource_id, :examination_id, :start_time, :end_time, :capacity_used
   # See permitted parameters documentation:
   # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters

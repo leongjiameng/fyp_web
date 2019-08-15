@@ -1,4 +1,5 @@
 ActiveAdmin.register Subject do
+  menu :parent => "Maintenances",url: :admin_subjects_url, :priority => 3
   permit_params :unit_code , :subject_name
   # See permitted parameters documentation:
   # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters

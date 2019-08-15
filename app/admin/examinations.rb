@@ -1,4 +1,5 @@
 ActiveAdmin.register Examination do
+  menu :parent => "Examination",url: :admin_examinations_url, :priority => 3
   permit_params :subject_id, :exam_session_id, :duration, :start_time, :end_time, :name
   # See permitted parameters documentation:
   # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters

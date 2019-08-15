@@ -1,5 +1,6 @@
 ActiveAdmin.register ExamSession do
-  permit_params :name, :from, :until
+  menu :parent => "Examination",url: :admin_exam_sessions_url, :priority => 3
+  permit_params :name, :from, :until, :current
   # See permitted parameters documentation:
   # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
   #

@@ -1,4 +1,5 @@
 class Invigilator < ApplicationRecord
-    has_one :venue_allocation
-    has_one :examination
+    belongs_to :venue_allocation
+    belongs_to :examination
+    belongs_to :staff
 end
