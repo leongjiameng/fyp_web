@@ -6,5 +6,4 @@ child(:result => "result") {
 	node(:department) do |staff|
 		staff.department.name
 	end 
- 
 }

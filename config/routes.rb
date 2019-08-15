@@ -17,6 +17,7 @@ Rails.application.routes.draw do
       get 'users/profile_student', to: 'users#profile_student'
       get 'users/profile_staff', to: 'users#profile_staff'
 
+      get 'reports/index', to: 'reports#index'
 
 
     end
