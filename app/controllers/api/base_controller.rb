@@ -12,7 +12,6 @@ class API::BaseController < ActionController::Base
   
   
     def ensure_authorized
-  
       if authorized?
         @current_user = User.where("encrypted_password LIKE ?","#{get_auth_token}%").first
         
