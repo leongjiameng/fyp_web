@@ -170,7 +170,7 @@ GEM
       mini_portile2 (~> 2.4.0)
     orm_adapter (0.5.0)
     public_suffix (3.1.1)
-    puma (3.12.1)
+    puma (3.12.3)
     pundit (2.0.1)
       activesupport (>= 3.0.0)
     rabl (0.14.1)
@@ -296,7 +296,7 @@ DEPENDENCIES
   jbuilder (~> 2.5)
   listen (>= 3.0.5, < 3.2)
   mysql2 (>= 0.4.4, < 0.6.0)
-  puma (~> 3.11)
+  puma (~> 3.12)
   pundit
   rabl
   rails (~> 5.2.3)
